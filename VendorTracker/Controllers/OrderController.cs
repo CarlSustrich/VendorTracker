@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+namespace VendorTracker.Controllers;
 
-namespace VendorTracker.Controllers
+public class OrderController : Controller
 {
-  public class OrderController : Controller
-  {
 
-    
+  
 
-  }
 }
+
