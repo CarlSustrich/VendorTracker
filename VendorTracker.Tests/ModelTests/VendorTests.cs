@@ -81,7 +81,7 @@ namespace VendorTracker.Tests
     }
 
     [TestMethod]
-    public void Find_ReturnsCorrectVendor_Vendor()
+    public void Find_ReturnsIndexOfCorrectVendorGivenID_Int()
     {
       string name = "test name";
       string description = "test description";
@@ -90,12 +90,27 @@ namespace VendorTracker.Tests
       string description2 = "test description2";
       Vendor testVendor2 = new Vendor(name2, description2);
 
-      Vendor result = Vendor.Find(1);
+      Vendor result = Vendor.GetAll()[Vendor.Find(1)];
+      Vendor desiredResult = Vendor.GetAll()[1];
 
       Assert.AreEqual(testVendor2, result);
     }
 
+    // [TestMethod]
+    // public void Find_ReturnsNeg1IfVendorNotFound_Vendor()
+    // {
+    //   string name = "test name";
+    //   string description = "test description";
+    //   Vendor testVendor = new Vendor(name, description);
+    //   string name2 = "test name2";
+    //   string description2 = "test description2";
+    //   Vendor testVendor2 = new Vendor(name2, description2);
 
+    //   int testFindResult = -1;
+    //   Vendor result = Vendor.Find(5);
+
+    //   Assert.AreEqual(testFindResult, result);
+    // }
     
   }
 
