@@ -31,5 +31,18 @@ namespace VendorTracker.Models
     {
       _instances.Clear();
     }
+
+    public static Vendor Find(int vendorID)
+    {
+      int index = -1;
+      foreach(Vendor item in _instances)
+      {
+        if(vendorID == item.ID)
+        {
+          index = _instances.IndexOf(item);
+        }
+      }
+      return _instances[index];
+    }
   }
 }
