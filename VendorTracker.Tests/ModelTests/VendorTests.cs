@@ -6,8 +6,15 @@ using System;
 namespace VendorTracker.Tests
 {
   [TestClass]
-  public class VendorTests
+  public class VendorTests : IDisposable
   {
+
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+      Vendor.Indexer = 0;
+    }
+
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
@@ -27,6 +34,48 @@ namespace VendorTracker.Tests
       Assert.AreEqual(name, result);
     }
 
+    [TestMethod]
+    public void GetId_ReturnsCategoryId_Int()
+    {
+      string name = "test name";
+      string description = "test description";
+      Vendor testVendor = new Vendor(name, description);
+      int result = testVendor.ID;
+     
+      Assert.AreEqual(0, result);
+    }
+
+    [TestMethod]
+    public void GetId_IncrementsOnVendorCreate_Int()
+    {
+      string name = "test name";
+      string description = "test description";
+      Vendor testVendor = new Vendor(name, description);
+      string name2 = "test name2";
+      string description2 = "test description2";
+      Vendor testVendor2 = new Vendor(name2, description2);
+
+      int result = testVendor2.ID;
+
+      Assert.AreEqual(1, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllVendorObjects_VendorList()
+    {
+      string name = "test name";
+      string description = "test description";
+      Vendor testVendor = new Vendor(name, description);
+      string name2 = "test name2";
+      string description2 = "test description2";
+      Vendor testVendor2 = new Vendor(name2, description2);
+      List<Vendor> testList = new List<Vendor> { testVendor, testVendor2 };
+
+      List<Vendor> result = Vendor.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
   }
 
 }
