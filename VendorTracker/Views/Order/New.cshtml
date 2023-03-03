@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+@using VendorTracker.Models
+
+
+<h1>Let's Collect some Info about @Model.Name's order</h1>
+  <form action="/vendor/@Model.ID/order" method="post">
+    <label for='name'>Order Name:</label><br>
+    <input type='text' id='name' name='name' required>
+    <br>
+    <br>
+    <label for='description'>Order Details:</label><br>
+    <textarea type='text' id='description' name='description' placeholder="15 Bread, 10 Pastries etc." required></textarea>
+    <br>
+    <br>
+    <label for='price'>Order Price:</label><br>
+    <input type='text' id='price' name='price' required>
+    <br>
+    <br>
+    @* <label for='dueDate'>Order Due Date:</label>
+    <input type='text' id='dueDate' name='dueDate' required> *@
+    @* <input hidden="hidden" id='artistId' name='artistId' value=@Model.Id> *@
+    <button type="submit">Submit!</button>
+  </form>
