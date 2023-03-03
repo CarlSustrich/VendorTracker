@@ -8,11 +8,23 @@ namespace VendorTracker.Tests
   [TestClass]
   public class VendorTests
   {
-     [TestMethod]
+    [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor newVendor = new Vendor();
+      string name = "test name";
+      string description = "test description";
+      Vendor newVendor = new Vendor(name, description);
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
+    }
+
+    [TestMethod]
+    public void GetName_ReturnsName_String()
+    {
+      string name = "test name";
+      string description = "test description";
+      Vendor testVendor = new Vendor(name, description);
+      string result = testVendor.Name;
+      Assert.AreEqual(name, result);
     }
 
   }
