@@ -123,5 +123,22 @@ namespace VendorTracker.Tests
       
       CollectionAssert.AreEqual(desiredResult, result);
     }
+
+    [TestMethod]
+    public void Find_ReturnsIndexOfCorrectOrderGivenID_Int()
+    {
+      string name = "test name";
+      string description = "test description";
+      double price = 3.14;
+      Vendor testVendor = new Vendor(name, description);
+      int testVendorID = testVendor.ID;
+      Order testOrder = new Order(name, description, price, testVendorID);
+
+      Order result = Order.GetAll()[Order.Find(0)];
+      Order desiredResult = Order.GetAll()[0];
+
+      Assert.AreEqual(desiredResult, result);
+    }
+
   }
 }

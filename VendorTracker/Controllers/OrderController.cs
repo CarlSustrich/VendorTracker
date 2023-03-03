@@ -22,4 +22,15 @@ public class OrderController : Controller
     return Redirect($"/vendor/{vendorID}");
   }
 
+  [HttpGet("/vendor/{vendorID}/order/{orderID}")]
+  public ActionResult Show(int vendorID, int orderID)
+  {
+    Vendor targetVendor = Vendor.GetAll()[Vendor.Find(vendorID)];
+    Order targetOrder = Order.GetAll()[Vendor.Find(orderID)];
+    Dictionary<string, object> model = new Dictionary<string, object>();
+    model.Add("Vendor", targetVendor);
+    model.Add("Order", targetOrder);
+    return View(model);
+  }
+
 }

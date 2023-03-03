@@ -38,4 +38,17 @@ public class Order
   {
     _instances.Clear();
   }
+
+  public static int Find(int orderID)
+  {
+    int index = -1;
+    foreach(Order item in _instances)
+    {
+      if(orderID == item.ID)
+      {
+        index = _instances.IndexOf(item);
+      }
+    }
+    return index;
+  }
 }
