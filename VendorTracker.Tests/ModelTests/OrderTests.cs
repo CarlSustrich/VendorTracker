@@ -15,7 +15,7 @@ namespace VendorTracker.Tests
       Order.Indexer = 0;
     }
 
-    
+
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
@@ -105,6 +105,23 @@ namespace VendorTracker.Tests
       int desiredResult = 0;
       
       Assert.AreEqual(desiredResult, result);
+    }
+
+
+    [TestMethod]
+    public void GetAll_ReturnsListOfOrders_List()
+    {
+      string name = "test name";
+      string description = "test description";
+      double price = 3.14;
+      Vendor targetVendor = new Vendor(name, description);
+      int targetVendorID = targetVendor.ID;
+      Order testOrder = new Order(name, description, price, targetVendorID);
+
+      List<Order> result = Order.GetAll();
+      List<Order> desiredResult = new List<Order> {testOrder};
+      
+      CollectionAssert.AreEqual(desiredResult, result);
     }
   }
 }
