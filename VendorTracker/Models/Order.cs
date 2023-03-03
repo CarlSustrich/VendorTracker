@@ -28,5 +28,15 @@ namespace VendorTracker.Models
       Vendor targetVendor = Vendor.GetAll()[Vendor.Find(vendorIndex)];
       targetVendor.Orders.Add(this);
     }
+
+    public static List<Order> GetAll()
+    {
+      return _instances;
+    }
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
+    }
   }
 }

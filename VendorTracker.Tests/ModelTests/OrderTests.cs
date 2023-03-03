@@ -6,8 +6,16 @@ using System;
 namespace VendorTracker.Tests
 {
   [TestClass]
-  public class OrderTests
+  public class OrderTests : IDisposable
   {
+
+    public void Dispose()
+    {
+      Order.ClearAll();
+      Order.Indexer = 0;
+    }
+
+    
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
@@ -83,6 +91,20 @@ namespace VendorTracker.Tests
       Assert.AreEqual(desiredResult, result);
     }
 
+    [TestMethod]
+    public void GetId_ReturnsCategoryId_Int()
+    {
+      string name = "test name";
+      string description = "test description";
+      double price = 3.14;
+      Vendor targetVendor = new Vendor(name, description);
+      int targetVendorID = targetVendor.ID;
 
+      Order testOrder = new Order(name, description, price, targetVendorID);
+      int result = testOrder.ID;
+      int desiredResult = 0;
+      
+      Assert.AreEqual(desiredResult, result);
+    }
   }
 }
