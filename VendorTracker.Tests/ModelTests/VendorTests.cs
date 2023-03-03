@@ -96,21 +96,21 @@ namespace VendorTracker.Tests
       Assert.AreEqual(testVendor2, result);
     }
 
-    // [TestMethod]
-    // public void Find_ReturnsNeg1IfVendorNotFound_Vendor()
-    // {
-    //   string name = "test name";
-    //   string description = "test description";
-    //   Vendor testVendor = new Vendor(name, description);
-    //   string name2 = "test name2";
-    //   string description2 = "test description2";
-    //   Vendor testVendor2 = new Vendor(name2, description2);
+    [TestMethod]
+    public void Find_ReturnsNeg1IfVendorNotFound_Vendor()
+    {
+      string name = "test name";
+      string description = "test description";
+      Vendor testVendor = new Vendor(name, description);
+      string name2 = "test name2";
+      string description2 = "test description2";
+      Vendor testVendor2 = new Vendor(name2, description2);
 
-    //   int testFindResult = -1;
-    //   Vendor result = Vendor.Find(5);
+      int desiredResult = -1;
+      int result = Vendor.Find(5);
 
-    //   Assert.AreEqual(testFindResult, result);
-    // }
+      Assert.AreEqual(desiredResult, result);
+    }
     
   }
 

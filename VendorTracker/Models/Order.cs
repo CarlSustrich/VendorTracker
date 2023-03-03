@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+
+namespace VendorTracker.Models
+{
+  public class Order
+  {
+    public string Name {get;set;}
+    public string Description {get;set;}
+    public double Price {get;set;}
+    public bool Paid {get;set;} =false;
+    public DateTime DatePlaced {get;} 
+    // public DateTime DateDue {get;set;}
+    private static List<Order> _instances = new List<Order> {};
+    public static int Indexer {get;set;} =0;
+    public int ID {get;}
+
+
+    public Order(string name, string description, double price, int vendorIndex)
+    {
+      Name = name;
+      Description = description;
+      Price = price;
+      DatePlaced = DateTime.Today;
+      ID = Indexer;
+      Order.Indexer ++;
+      _instances.Add(this);
+      Vendor targetVendor = Vendor.GetAll()[Vendor.Find(vendorIndex)];
+      targetVendor.Orders.Add(this);
+    }
+  }
+}

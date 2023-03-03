@@ -10,7 +10,7 @@ namespace VendorTracker.Models
     private static List<Vendor> _instances = new List<Vendor> {};
     public static int Indexer {get;set;} =0;
     public int ID {get;}
-    // public List<Order> Orders {get;set;}
+    public List<Order> Orders {get;set;}
 
     public Vendor(string vendorName, string vendorDescription)
     {
@@ -19,7 +19,7 @@ namespace VendorTracker.Models
       ID = Indexer;
       Vendor.Indexer ++;
       _instances.Add(this);
-      // Orders = new List<Order>{};
+      Orders = new List<Order>{};
     }
 
     public static List<Vendor> GetAll()
