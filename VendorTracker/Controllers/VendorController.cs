@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace VendorTracker.Controllers
 {
-  public class HomeController : Controller
+  public class VendorController : Controller
   {
 
     
