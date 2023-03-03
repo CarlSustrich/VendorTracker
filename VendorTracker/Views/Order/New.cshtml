@@ -4,7 +4,7 @@
 @using VendorTracker.Models
 
 
-<h1>Let's Collect some Info about @Model.Name's order</h1>
+<h1>Let's Collect some info about @Model.Name's new order</h1>
   <form action="/vendor/@Model.ID/order" method="post">
     <label for='name'>Order Name:</label><br>
     <input type='text' id='name' name='name' required>
@@ -15,7 +15,7 @@
     <br>
     <br>
     <label for='price'>Order Price:</label><br>
-    <input type='text' id='price' name='price' required>
+    <input type='text' id='price' name='price' min='0' placeholder="ex 12.45" pattern='^(?!^0\.00$)(([1-9][\d]{0,6})|([0]))\.[\d]{2}$' required>
     <br>
     <br>
     @* <label for='dueDate'>Order Due Date:</label>

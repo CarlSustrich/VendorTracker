@@ -4,5 +4,26 @@
 @using VendorTracker.Models
 
 <h1>Here are more details on @Model["Vendor"].Name's order @Model["Order"].Name</h1>
+<ul>
+  <li>Order Description: @Model["Order"].Description</li>
+  <li>Order Price: @Model["Order"].Price</li>
+  @if(@Model["Order"].Paid)
+  {
+    <li>Order Paid</li>
+  }
+  else 
+  {
+    <li>Order Unpaid</li>
+  }
+  <li>Date Placed: @Model["Order"].DatePlaced</li>
+  @* <li>Date Due: @Model["Order"].DueDate</li> *@
+</ul>
 
-
+@if(!@Model["Order"].Paid)
+{
+  <form action="/vendor/@(Model["Vendor"].ID)/order/@(Model["Order"].ID)" method="post">
+    <label for="paid">Mark This Order As Paid?</label>
+    <input type="checkbox" id="paid" name="paid" value='true'>
+    <button type="submit">Submit</button>
+  </form>
+}

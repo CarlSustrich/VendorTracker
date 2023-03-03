@@ -33,4 +33,17 @@ public class OrderController : Controller
     return View(model);
   }
 
+  [HttpPost("/vendor/{vendorID}/order/{orderID}")]
+  public ActionResult Update(int vendorID, int orderID, bool paid)
+  {
+    Vendor targetVendor = Vendor.GetAll()[Vendor.Find(vendorID)];
+    Order targetOrder = Order.GetAll()[Vendor.Find(orderID)];
+      
+    if (paid == true){
+      targetOrder.Paid = true;
+    }
+   
+    return Redirect($"/vendor/{vendorID}/order/{orderID}");
+  }
+
 }

@@ -11,8 +11,7 @@
 
   @foreach (Vendor item in Model)
   {
-    <p class='vendorName'><a href="/vendor/@item.ID">@item.Name</a></p>
-    <p class='vendorDescription'>@item.Description</p>
+    <p class='vendorName'><a href="/vendor/@item.ID">@item.Name</a>, Active Orders: @item.Orders.Count()</p>
+    <p class="vendorDetails">* @item.Description</p><br>
   }
 
-  @* <p><a href='/'>Back home</a></p> *@

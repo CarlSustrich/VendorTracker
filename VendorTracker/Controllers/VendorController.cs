@@ -17,11 +17,24 @@ public class VendorController : Controller
   }
 
   [HttpPost("/vendor")]
-  public ActionResult Create(string name, string description)
+  public ActionResult Create(string name, string description, bool splashOrDetails)
   {
     Vendor newVendor = new Vendor(name, description);
-    return RedirectToAction("Index");
+    if (splashOrDetails) {
+      return Redirect($"/vendor/{newVendor.ID}");
+    }
+    else 
+    {
+      return Redirect("/");
+    }
   }
+
+  // [HttpPost("/vendor")]
+  // public ActionResult Create(string name, string description)
+  // {
+  //   Vendor newVendor = new Vendor(name, description);
+  //   return Redirect($"/vendor/{newVendor.ID}");
+  // }
 
   [HttpGet("/vendor/{vendorID}")]
   public ActionResult Show(int vendorID)

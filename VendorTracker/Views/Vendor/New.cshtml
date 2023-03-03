@@ -3,15 +3,19 @@
 }
 
 <h1>Lets collect some information about this new vendor!</h1>
-    <form action="/vendor" method="post">
-      <label for='name'>Vendor Name:</label><br>
-      <input id='name' name='name' type='text' required>
-      <br>
-      <label for='description'>Brief Description of Vendor:</label><br>
-      <textarea id='description' name='description' type='text' placeholder="Address? Notes on owner?" required></textarea>
-      <br>
-      <button type='submit'>Submit!</button>
-    </form>
-    <br><br>
+<form action="/vendor" method="post">
+  <label for='name'>Vendor Name:</label><br>
+  <input id='name' name='name' type='text' required>
+  <br>
+  <label for='description'>Brief Description of Vendor:</label><br>
+  <textarea id='description' name='description' type='text' placeholder="Address? Notes on owner?" required></textarea>
+  <br>
+  <label for='splashOrDetails'>Add Orders for this Vendor Now?</label>
+  <input type="checkbox" id='splashOrDetails' name='splashOrDetails' value='true' checked>
+  <br>
+  <br>
+  <button type='submit'>Submit!</button>
+</form>
+<br><br>
     @* <a href="/vendor"><button>Back to Vendor List</button></a>
     <a href="/"><button>Back Home</button></a> *@
