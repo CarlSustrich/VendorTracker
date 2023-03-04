@@ -29,13 +29,6 @@ public class VendorController : Controller
     }
   }
 
-  // [HttpPost("/vendor")]
-  // public ActionResult Create(string name, string description)
-  // {
-  //   Vendor newVendor = new Vendor(name, description);
-  //   return Redirect($"/vendor/{newVendor.ID}");
-  // }
-
   [HttpGet("/vendor/{vendorID}")]
   public ActionResult Show(int vendorID)
   {

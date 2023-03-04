@@ -14,7 +14,6 @@
   @foreach (Order item in Model.Orders)
   {
     <p class="orderName"><a href="/vendor/@Model.ID/order/@item.ID">@item.Name</a>, Order Placed On: @item.DatePlaced.ToString("d")</p>
-    <p>Order ID: @item.ID</p>
   }
 </ul>
 <a href="/vendor/@Model.ID/order/new">Add an Order for @Model.Name</a>
