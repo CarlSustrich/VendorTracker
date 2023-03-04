@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 namespace VendorTracker.Models;
 
 
@@ -10,7 +11,7 @@ public class Order
   public double Price {get;set;}
   public bool Paid {get;set;} =false;
   public DateTime DatePlaced {get;} 
-  // public DateTime DateDue {get;set;}
+  public DateTime DateDue {get;set;}
   private static List<Order> _instances = new List<Order> {};
   public static int Indexer {get;set;} =0;
   public int ID {get;}

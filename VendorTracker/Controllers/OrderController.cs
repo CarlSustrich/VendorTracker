@@ -26,7 +26,7 @@ public class OrderController : Controller
   public ActionResult Show(int vendorID, int orderID)
   {
     Vendor targetVendor = Vendor.GetAll()[Vendor.Find(vendorID)];
-    Order targetOrder = Order.GetAll()[Vendor.Find(orderID)];
+    Order targetOrder = Order.GetAll()[Order.Find(orderID)];
     Dictionary<string, object> model = new Dictionary<string, object>();
     model.Add("Vendor", targetVendor);
     model.Add("Order", targetOrder);
